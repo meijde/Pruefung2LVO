@@ -15,6 +15,15 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
         * 
         * ANTWORTEN BITTE HIER
         * 
+        * 1) SQL Injection / Stored XSS
+        * 
+        * 2) Stored XSS -       Es wird ein Script File in zb einem Kommentar auf einem Blog publiziert. Dieses wird dann in die DB gespeichert.
+        *    SQL Injection -    Es wird verscuht SQL in inputfelder der Website einzuschleusen, sodass diese ausgeführt werden in einer DB Abfrage im Code.
+        *       --> Es kann alles aus der DB geholt werden, auch sensitive Daten!
+        * 3) 
+        * 
+        * 
+        * 
         * */
 
         public ActionResult Index() {
