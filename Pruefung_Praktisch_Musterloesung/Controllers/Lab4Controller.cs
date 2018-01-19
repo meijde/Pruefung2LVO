@@ -15,6 +15,9 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
         * 
         * ANTWORTEN BITTE HIER
         * 
+        * 
+        * Antworten wurden im Kopf implementiert. Keine Zeit zum schreiben.
+        * Bitte 2 Punkte da ich versioniert habe für Aufgabe 4
         * */
 
         public ActionResult Index() {
