@@ -13,6 +13,14 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
          * 
          * ANTWORTEN BITTE HIER
          * 
+         * 1)  Directory Listing / File Enumeration Attacken
+         * 2)  - http://localhost:50374/Lab1/index?type=../images/Lion1.jpg
+		 *     - http://localhost:50374/Lab1/index?file=bear1.jpg?type=bears
+		 * 
+		 * 3.   Je nach Konfiguration des Webservers werden Zugriffe auf Ordner (und nicht Einzeldokumente) akzeptiert oder nicht. Ist der Zugriff auf einen Ordner zugelassen, wird der Inhalt dieses Ornders entsprechend angezeigt und die darin enthaltenen Dokumente als Link dargestellt.
+         * 
+         * 
+         * 
          * */
 
 
@@ -22,7 +30,15 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
 
             if (string.IsNullOrEmpty(type))
             {
-                type = "lions";                
+                type = "Lion1.jpg";                
+            }
+            else
+            {
+                //Falls type nicht etwas vorhandenes ist, soll standard gesetzt werden.
+                if (type != "bears" && type != "elephants" && type != "lions")
+                {
+                    type = "lions"; 
+                }
             }
 
             var path = "~/Content/images/" + type;
@@ -58,13 +74,20 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
             var file = Request.QueryString["file"];
             var type = Request.QueryString["type"];
 
+
+
             if (string.IsNullOrEmpty(file))
             {
-                file = "Lion1.jpg";
+                file = "bears/";
             }
             if (string.IsNullOrEmpty(type))
             {
-                file = "lions";
+                file = "bear1.jpg";
+            }
+            //Falls type nicht etwas vorhandenes ist, soll standard gesetzt werden.
+            if (type != "bears" && type != "elephants" && type != "lions")
+            {
+                type = "lions";
             }
 
             var relpath = "~/Content/images/" + type + "/" + file;
