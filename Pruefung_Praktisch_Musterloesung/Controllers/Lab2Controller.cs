@@ -19,6 +19,23 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
         * 
         * ANTWORTEN BITTE HIER
         * 
+        * 1) Session Fixation / XST
+        * 
+        * 2) Session Fixation: (Eine weitere Attacke ist möglich, wenn Webapplikation „per default“ jedem Benutzer eine Session ID vergeben. Folgendes Szenario ist dann denkbar:)
+        *   1. Mallory besucht eine Webseite, welche jedem Benutzer eine Session ID vergibt. Z.B. http://localhost/ und prüft die retournierte Session ID. Z.B. via Set-Cookie-Header SID=0D6441FEA4496C2.
+            2. Mallory kann nun Alice eine Email mit folgendem Inhalt senden: "Check out this new cool feature on our bank, http:/localhost:/?SID=0D6441FEA4496C2.“
+            3. Alice loggt sich dann ein und die “fixierte” Session-ID 0D6441FEA4496C2 wird aktiv.
+            4. Mallory kann dann http://localhost/?SID=0D6441FEA4496C2 besuchen und hat uneingeschränkten Zugriff auf Alice's account.
+        * 
+        *     XST: 
+        *     1. Mallory weiss z.B., dass Bob stets in einem Online-Forum aktiv ist.
+              2. Mallory weiss beispielsweise auch, bei welcher Bank Bob ein Konto hat und dass Bob e-Banking betreibt.
+              3. Mallory stellt nun folgende Nachricht bzw. folgendes Bild ins Online-Forum, welches Bob’s Bank referenziert.
+              4. Hat Bob nun eine aktive Session beim e-Banking, wird beim Ansehen des Bildes durch Bob eine Transaktion von Bobs Account zu Mallory ausgelöst.
+        *       --> <img src="ubs.com/wihtdraw?account=lars&amount=10&for=hurni" 
+        * 
+        * 
+        * 
         * */
 
         public ActionResult Index() {
